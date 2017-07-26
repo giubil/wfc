@@ -7,9 +7,12 @@ DISTDIR = build
 OUTPUTDIR = output
 SRCDIR  = src
 SRCFILES = $(wildcard $(SRCDIR)/*.cpp)
+INCDIR = inc
+INCFILES = $(wildcard $(INCDIR)/*h)
 OBJFILES = $(patsubst $(SRCDIR)/%.cpp, $(DISTDIR)/%.o, $(SRCFILES))
 RM = rm -rf
 MKDIR = mkdir -p
+CXXFLAGS += -I./$(INCDIR)
 
 
 all: setup $(BIN)
@@ -20,7 +23,7 @@ $(BIN): $(OBJFILES)
 $(DISTDIR)/%.o: $(SRCDIR)/%.cpp
 	$(CXX) $(CXXFLAGS) $(CPPFLAGS) -c $< -o $@
 
-.PHONY: run clean distclean
+.PHONY: run clean distclean fclean re
 
 setup: $(DISTDIR) $(OUTPUTDIR)
 	git submodule update --init --recursive
@@ -37,5 +40,7 @@ run: all
 clean:
 	$(RM) $(OBJFILES) $(DISTDIR)
 
-distclean: clean
-	$(RM) $(BIN) $(OUTPUTDIR)
+fclean: clean
+	$(RM) $(BIN)
+
+re: fclean all

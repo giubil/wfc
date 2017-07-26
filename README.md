@@ -1,5 +1,5 @@
 # Wave Function Collapse in C++
-This is a C++ port of https://github.com/mxgmn/WaveFunctionCollapse.
+This code is a refactor from https://github.com/emilk/wfc, which is a C++ port of https://github.com/mxgmn/WaveFunctionCollapse.
 
 All sample images come from https://github.com/mxgmn/WaveFunctionCollapse
 
@@ -12,7 +12,7 @@ The sample images are from https://github.com/mxgmn/WaveFunctionCollapse, so the
 
 # How to get started
 
-    git clone git@github.com:emilk/wfc.git
+    git clone git@github.com:giubil/wfc.git
     cd wfc
     make run
 

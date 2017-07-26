@@ -3,3 +3,4 @@ wfc
 *.sublime-*
 build/
 output/
+.vscode/
