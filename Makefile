@@ -1,6 +1,8 @@
-CXXFLAGS := --std=c++14 -Wall -Wno-sign-compare -O2 -g -DNDEBUG
-CPPFLAGS := -I libs -I libs/emilib
-LDLIBS   := -lstdc++ -lpthread -ldl
+CXX = c++
+
+CXXFLAGS := --std=c++14 -Wall -Wextra -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-sign-compare -O2 -g -DNDEBUG
+CPPFLAGS := -I libs -I libs/emilib -I /usr/local/include
+LDLIBS   := -L/usr/local/lib -lstdc++ -lpthread -ldl -lsfml-system -lsfml-window -lsfml-graphics
 
 BIN = wfc
 DISTDIR = build

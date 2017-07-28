@@ -4,3 +4,4 @@ wfc
 build/
 output/
 .vscode/
+stream.sh

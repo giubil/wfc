@@ -20,10 +20,17 @@ The sample images are from https://github.com/mxgmn/WaveFunctionCollapse, so the
 
 This works on Mac and Linux.
 
-# Requirements
-C++14. Nothing more, really.
+When running the sfml code, please be advised that it is a WIP. Several things are not handled. Window dimension are written in the code, and do not adapt to the dimension of the samples being shown.
 
-All required third-party libraries are included or downloaded by running `make`. These are:
+To show frames you need to pass the argument `--gif`. The final gif will also not be created (even if the file will be created, it will only have the final frame into it).
+
+# Requirements
+
+C++14. 
+
+This release integrates a video output with SFML. It also totally breaks Windows support, because of the introduction of threads.
+
+All required third-party libraries are included or downloaded by running `make` (except for SFML). These are:
 
 * https://github.com/emilk/configuru (`.cfg` loading)
 * https://github.com/emilk/emilib (small helpers for looping and string formating)

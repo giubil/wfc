@@ -11,6 +11,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #include <vector>
+#include <queue>
+#include <iostream>
 
 #include <configuru.hpp>
 #include <emilib/irange.hpp>
@@ -47,10 +49,13 @@ const auto kInvalidIndex = static_cast<size_t>(-1);
 const auto kInvalidHash = static_cast<PatternHash>(-1);
 
 const bool   kGifSeparatePalette  = true;
-const size_t kGifInterval         =  16; // Save an image every X iterations
+const size_t kGifInterval         =  1; // Save an image every X iterations
 const int    kGifDelayCentiSec    =   1;
 const int    kGifEndPauseCentiSec = 200;
 const size_t kUpscale             =   4; // Upscale images before saving
+
+unsigned char *stbi_write_png_to_mem(unsigned char *pixels, int stride_bytes, int x, int y, int n, int *out_len);
+
 
 struct Options
 {

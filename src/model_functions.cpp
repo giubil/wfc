@@ -46,7 +46,7 @@ Result observe(const Model& model, Output* output, RandomDouble& random_double)
 	return Result::kUnfinished;
 }
 
-Result run(Output* output, const Model& model, size_t seed, size_t limit, jo_gif_t* gif_out)
+Result run(Output* output, const Model& model, size_t seed, size_t limit, jo_gif_t* gif_out, std::queue<Image> &frame_queue)
 {
 	std::mt19937 gen(seed);
 	std::uniform_real_distribution<double> dis(0.0, 1.0);
@@ -57,7 +57,8 @@ Result run(Output* output, const Model& model, size_t seed, size_t limit, jo_gif
 
 		if (gif_out && l % kGifInterval == 0) {
 			const auto image = model.image(*output);
-			jo_gif_frame(gif_out, (uint8_t*)image.data(), kGifDelayCentiSec, kGifSeparatePalette);
+			frame_queue.push(image);
+			//jo_gif_frame(gif_out, (uint8_t*)image.data(), kGifDelayCentiSec, kGifSeparatePalette);
 		}
 
 		if (result != Result::kUnfinished) {
